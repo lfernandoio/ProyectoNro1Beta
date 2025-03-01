@@ -1,7 +1,7 @@
 <?php
 declare (strict_types=1);
 class operacion{
-    public function factorial(int $nVlr):int{
-        return $nVlr; 
+    public function suma(int $nVlrA,int $nVlrB):int{
+        return $nVlrA+$nVlrB; 
     }
 }
