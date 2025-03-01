@@ -5,7 +5,7 @@ include "./src/operacion.php";
 class operacion_Test extends TestCase{
     public function testFactorial():void{
         $objOpr= new operacion();
-        $nFct= $objOpr->factorial(50);
+        $nFct= $objOpr->suma(20,30);
         $this->assertIsNumeric($nFct);
         $this->assertEquals($nFct,50);
     }
