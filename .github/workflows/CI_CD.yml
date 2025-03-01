@@ -1,0 +1,29 @@
+name: Pipeline
+on:
+  push:
+    branches: ["main"]
+jobs:
+    CI:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+            - uses: php-actions/composer@v6
+            - name: PHPUnit 
+              uses: php-actions/phpunit@master
+              with:
+                bootstrap: vendor/autoload.php
+                configuration: phpunit.xml
+    CD:
+        needs: CI
+        runs-on: ubuntu-latest
+        steps:
+            - name: Get latest code
+              uses: actions/checkout@v3          
+            - name: Sync files
+              uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+              with:
+                server:   us-east-1.sftpcloud.io
+                username: b1bf1c2448eb40ffa0f8d293b710b8e2
+                password: q5Mnrcf3JG9F5Zh4ECUexQ6JHgw43Z0m
+                local-dir: ./tests/Facturacion/
+                server-dir: ./app_web/Facturacion/
