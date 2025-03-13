@@ -7,7 +7,7 @@ pipeline
         {
             steps 
             {
-                echo “Actividad Nro1 Etapa Nro1"
+                echo "Actividad Nro1 Etapa Nro1"
             }
         }
         stage ("Etapa Nro. 2") 
