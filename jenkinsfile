@@ -1,0 +1,21 @@
+pipeline
+{
+    agent any
+    stages 
+    {
+        stage ("Etapa Nro.1") 
+        {
+            steps 
+            {
+                echo “Actividad Nro1 Etapa Nro1"
+            }
+        }
+        stage ("Etapa Nro. 2") 
+        {
+            steps 
+            {
+               bat '.\\vendor\\bin\\phpunit  --testsuite Facturacion'
+            }
+        }
+    }
+}
